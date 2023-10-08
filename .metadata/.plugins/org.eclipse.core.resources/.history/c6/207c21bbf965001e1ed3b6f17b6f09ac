@@ -1,0 +1,42 @@
+/*
+ * NUM_EX1.c
+ *
+ *  Created on: Oct 8, 2023
+ *      Author: Huy Minh
+ */
+
+#include "NUM_EX1.h"
+#include "software_timer.h"
+
+
+void EX1_RUN(
+		GPIO_TypeDef* A_GPIO_Port, uint16_t A_Pin,
+		GPIO_TypeDef* B_GPIO_Port, uint16_t B_Pin){
+	switch(EN_STATE){
+	case INIT:
+		EN_STATE = NUM2;
+		HAL_GPIO_WritePin(A_GPIO_Port, A_Pin, 1);
+		HAL_GPIO_WritePin(B_GPIO_Port, B_Pin, 0);
+		display7SEG(1);
+	case NUM1:
+		display7SEG(1);
+		if(timer1_flag == 1){
+			HAL_GPIO_WritePin(A_GPIO_Port, A_Pin, 0);
+			HAL_GPIO_WritePin(B_GPIO_Port, B_Pin, 1);
+			  setTimer1(50);
+			  EN_STATE = NUM2;
+		}
+	case NUM2:
+		display7SEG(2);
+		if(timer1_flag == 1){
+			HAL_GPIO_WritePin(A_GPIO_Port, A_Pin, 1);
+			HAL_GPIO_WritePin(B_GPIO_Port, B_Pin, 0);
+			  setTimer1(50);
+			  EN_STATE = NUM1;
+		}
+
+	default:
+
+		break;
+	}
+}

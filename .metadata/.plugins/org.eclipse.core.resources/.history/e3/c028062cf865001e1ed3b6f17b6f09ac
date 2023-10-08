@@ -1,0 +1,19 @@
+/*
+ * NUM_EX1.h
+ *
+ *  Created on: Oct 8, 2023
+ *      Author: Huy Minh
+ */
+
+#ifndef INC_NUM_EX1_H_
+#define INC_NUM_EX1_H_
+
+#include "global.h"
+
+void EX1_RUN();
+void EX1_RUN(
+		GPIO_TypeDef* A_GPIO_Port, uint16_t A_Pin,
+		GPIO_TypeDef* B_GPIO_Port, uint16_t B_Pin);
+
+
+#endif /* INC_NUM_EX1_H_ */

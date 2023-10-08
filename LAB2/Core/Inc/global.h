@@ -1,0 +1,18 @@
+/*
+ * global.h
+ *
+ *  Created on: Oct 8, 2023
+ *      Author: Huy Minh
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#define INIT 	1
+#define NUM1	2
+#define NUM2	3
+
+extern int EN_STATE;
+extern int State;
+
+#endif /* INC_GLOBAL_H_ */
