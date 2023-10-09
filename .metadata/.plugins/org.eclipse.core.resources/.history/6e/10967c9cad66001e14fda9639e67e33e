@@ -58,7 +58,7 @@ static void MX_GPIO_Init(void);
 /* USER CODE BEGIN 0 */
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
-uint8_t matrix_buffer[8] = {0x18, 0x24, 0x24, 0x3c, 0x66, 0x42, 0x42, 0x42};
+uint8_t matrix_buffer[8] = {0x00,0x66,0xff,0xff,0xff,0x7e,0x3c,0x18};
 int row_index = 0;
 
 void clear_row(){
@@ -88,7 +88,7 @@ void displayRow(int index, uint8_t bits){
 	if(row_value & 0b10000000) HAL_GPIO_WritePin(ROW7_GPIO_Port, ROW7_Pin, RESET);
 
 }
-void updateLEDMatrix(int index){
+oid updateLEDMatrix_OLD(int index){
     switch (index % MAX_LED_MATRIX){
         case 0:
         	HAL_GPIO_WritePin(ENM0_GPIO_Port, ENM0_Pin, 0);
@@ -220,7 +220,7 @@ int main(void)
   while (1)
   {
 	  if(timer1_flag == 1){
-		  updateLEDMatrix(index++);
+		  updateLEDMatrix_OLD(index++);
 		  setTimer1(50);
 	  }
 
