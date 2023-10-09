@@ -59,8 +59,6 @@ static void MX_GPIO_Init(void);
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
 uint8_t matrix_buffer[8] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
-
-
 void updateLEDMatrix(int index){
     switch (index){
         case 0:
@@ -93,7 +91,7 @@ void set_displayMatrix(int state,
 		GPIO_TypeDef* COL04_GPIO_Port, uint16_t COL04_Pin,
 		GPIO_TypeDef* COL05_GPIO_Port, uint16_t COL05_Pin,
 		GPIO_TypeDef* COL06_GPIO_Port, uint16_t COL06_Pin,
-		GPIO_TypeDef* COL07_GPIO_Port, uint16_t COL07_Pin
+		GPIO_TypeDef* COL07_GPIO_Port, uint16_t COL07_Pin,
 		){
 	switch(state){
 	case 0:
@@ -183,14 +181,14 @@ void set_displayMatrix(int state,
 
 void displayMatrix(int state){
 	return set_displayMatrix(state,
-			ROW0_GPIO_Port, ROW0_Pin,
-			ROW1_GPIO_Port, ROW1_Pin,
-			ROW2_GPIO_Port, ROW2_Pin,
-			ROW3_GPIO_Port, ROW3_Pin,
-			ROW4_GPIO_Port, ROW4_Pin,
-			ROW5_GPIO_Port, ROW5_Pin,
-			ROW6_GPIO_Port, ROW6_Pin,
-			ROW7_GPIO_Port, ROW7_Pin);
+			COL0_GPIO_Port, COL0_Pin,
+			COL1_GPIO_Port, COL1_Pin,
+			COL2_GPIO_Port, COL2_Pin,
+			COL3_GPIO_Port, COL3_Pin,
+			COL4_GPIO_Port, COL4_Pin,
+			COL5_GPIO_Port, COL5_Pin,
+			COL6_GPIO_Port, COL6_Pin,
+			COL7_GPIO_Port, COL7_Pin)
 }
 /* USER CODE END 0 */
 
