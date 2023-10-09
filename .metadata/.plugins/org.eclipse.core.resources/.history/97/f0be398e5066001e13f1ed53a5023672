@@ -178,7 +178,6 @@ void display7SEG(int counter){
 const int MAX_LED = 4;
 int index_led = 1;
 int led_buffer[4] = {0, 0, 0, 0};
-int hour = 15, minute = 8, second = 50;
 
 void update7SEG(int index){
 	index = index % MAX_LED;
@@ -269,7 +268,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
+  int hour = 15, minute = 8, second = 50;
 
   while (1)
   {
